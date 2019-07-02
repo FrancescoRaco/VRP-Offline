@@ -86,7 +86,7 @@ public class OfflineGeocoder
 				}
 				
 				//If asking for reverse geocoding and a hit occurs
-				else if (lat != 0.0 && lon != 0.0 && stop.contains(Double.toString(lat)) && stop.contains(Double.toString(lon)))
+				else if ((address == null) && stop.contains(Double.toString(lat)) && stop.contains(Double.toString(lon)))
 				{
 					//Store address, lat & lon values into a String array
 					String[] line = stop.split(" ");
