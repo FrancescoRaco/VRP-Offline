@@ -107,8 +107,8 @@ public class NominatimReverseGeocodingJAPI
 			//and append them to the String Builder result
 			String text;
 			
-			 //Append to result every line
-			//returned by the Buffered Reader;
+			//Append to result every line
+		        //returned by the Buffered Reader;
 			//finally close the Buffered Reader
 			while ((text = in.readLine()) != null) result.append(text);
 			in.close();
