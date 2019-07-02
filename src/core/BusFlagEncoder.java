@@ -12,41 +12,41 @@ import com.graphhopper.util.PMap;
 public class BusFlagEncoder extends CarFlagEncoder
 {
 
-    /**
-     * Constructor with PMap object as argument, passing properties values of speed_bits, speed_factor and turn_costs with Overloading
-     * @param properties Properties map with convenient accessors
-     */
+      /**
+       * Constructor with PMap object as argument, passing properties values of speed_bits, speed_factor and turn_costs with Overloading
+       * @param properties Properties map with convenient accessors
+       */
 	public BusFlagEncoder(PMap properties)
-    {
-        this(
-                (int) properties.getLong("speed_bits", 5),
-                properties.getDouble("speed_factor", 5),
-                properties.getBool("turn_costs", false) ? 1 : 0
-        	);
+        {
+        	this(
+                	(int) properties.getLong("speed_bits", 5),
+                	properties.getDouble("speed_factor", 5),
+                	properties.getBool("turn_costs", false) ? 1 : 0
+        	     );
         
-        //Assign properties argument to corresponding field
-        this.properties = properties;
+        	//Assign properties argument to corresponding field
+        	this.properties = properties;
         
-        //Set Block Fords to corresponding boolean value of block_fords key
-        this.setBlockFords(properties.getBool("block_fords", true));
-    }
+        	//Set Block Fords to corresponding boolean value of block_fords key
+        	this.setBlockFords(properties.getBool("block_fords", true));
+    	}
     
-    /**
-     * No arguments constructor passing Car Flag Encoder values with Overloading
-     */
+    	/**
+     	* No arguments constructor passing Car Flag Encoder values with Overloading
+     	*/
 	public BusFlagEncoder()
-    {
-        this(5, 5, 0);
-    }
+    	{
+        	this(5, 5, 0);
+    	}
 
-    /**
-     * Constructor with string property argument by which create a PMap object to pass with Overloading
-     * @param propertiesStr String property argument by which create a PMap object to pass with Overloading
+    	/**
+     	* Constructor with string property argument by which create a PMap object to pass with Overloading
+     	* @param propertiesStr String property argument by which create a PMap object to pass with Overloading
      */
 	public BusFlagEncoder(String propertiesStr)
-    {
-        this(new PMap(propertiesStr));
-    }
+    	{
+        	this(new PMap(propertiesStr));
+    	}
 
     /**
      * Constructor with 3 arguments: speed bits, speed factor, max turn costs
