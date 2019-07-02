@@ -112,7 +112,7 @@ public class Address
 			{
 				System.err.println(jObject.get("error"));
 				return;
-		    }
+		        }
 			
 			//Get the values associated with the following keys
 			//and assign them to the corresponding private field of this Address instance
@@ -138,7 +138,8 @@ public class Address
 			{
 				postcode = addressObject.getString("postcode");
 			}			
-			if(addressObject.has("state")){
+			if(addressObject.has("state"))
+			{
 				state = addressObject.getString("state");
 			}			
 			if(addressObject.has("county"))
