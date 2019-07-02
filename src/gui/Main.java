@@ -40,7 +40,7 @@ public class Main extends Application
 	/**
 	 * Verdana font
 	 */
-    public static final String FONT = "fonts/Verdana.ttf";
+        public static final String FONT = "fonts/Verdana.ttf";
 	
 	/**
 	 * Access point of the GUI application
@@ -180,9 +180,9 @@ public class Main extends Application
 	}
 	
 	@Override
-    public void start(Stage primaryStage)
-	{
-		//Instantiate text field containing the string name of the input file
+    	public void start(Stage primaryStage)
+    	{
+    		//Instantiate text field containing the string name of the input file
 		TextField text = new TextField();
 		
 		//Create label object which describes the status of execution
@@ -190,104 +190,104 @@ public class Main extends Application
 		Label status = new Label("");
 		status.setStyle("-fx-text-fill: red");
 		
-        //Create new toggle button related to solution, then set its text and action
+        	//Create new toggle button related to solution, then set its text and action
 		ToggleButton solutionButton = new ToggleButton();
-        solutionButton.setText("Calcola Rotte");
-        solutionButton.setOnAction(new EventHandler<ActionEvent>()
-        {
+		solutionButton.setText("Calcola Rotte");
+        	solutionButton.setOnAction(new EventHandler<ActionEvent>()
+    		{
  
-            @Override
-            public void handle(ActionEvent event)
-            {
-            	//Try execution and handle eventual exceptions
-            	try
-               {
-            		//Invoke chooseAction specifying solution as output type which
-            		//program has to return
-            		chooseAction(status, text, OutputChoice.SOLUTION, "Soluzione");
-               }
-               catch (InterruptedException e)
-               {
+        		@Override
+        		public void handle(ActionEvent event)
+        		{
+            			//Try execution and handle eventual exceptions
+            			try
+               			{
+            				//Invoke chooseAction specifying solution as output type which
+            				//program has to return
+            				chooseAction(status, text, OutputChoice.SOLUTION, "Soluzione");
+               			}
+               			catch (InterruptedException e)
+               			{
 				
-            	   e.printStackTrace();
-               }
+            	  			 e.printStackTrace();
+               			}
 			}
-        });
+        	});
         
-        //Create new toggle button related to the testing of R&R, then set its text and action
-        ToggleButton testButton = new ToggleButton();
-        testButton.setText("Testa R&R");
-        testButton.setOnAction(new EventHandler<ActionEvent>()
-        {
+        	//Create new toggle button related to the testing of R&R, then set its text and action
+        	ToggleButton testButton = new ToggleButton();
+        	testButton.setText("Testa R&R");
+        	testButton.setOnAction(new EventHandler<ActionEvent>()
+        	{
  
-            @Override
-            public void handle(ActionEvent event)
-            {
-            	//Try execution and handle eventual exceptions
-            	try
-            	{
-            		//Invoke chooseAction specifying test as output type which
-            		//program has to return
-            		chooseAction(status, text, OutputChoice.TEST, "Testa Soluzione");
+            		@Override
+            		public void handle(ActionEvent event)
+            		{
+            			//Try execution and handle eventual exceptions
+            			try
+            			{
+            				//Invoke chooseAction specifying test as output type which
+            				//program has to return
+            				chooseAction(status, text, OutputChoice.TEST, "Testa Soluzione");
 				}
-            	catch (InterruptedException e)
-            	{
+            			catch (InterruptedException e)
+            			{
 					e.printStackTrace();
 				}
-            }
-        });
+            		}
+        	});
         
-        //Create a toggle group object
-        ToggleGroup group = new ToggleGroup();
+        	//Create a toggle group object
+        	ToggleGroup group = new ToggleGroup();
         
-        //Add to group the solution and test button
-        solutionButton.setToggleGroup(group);
-        testButton.setToggleGroup(group);
+        	//Add to group the solution and test button
+        	solutionButton.setToggleGroup(group);
+        	testButton.setToggleGroup(group);
         
-        //Create a new flexible grid of rows and columns and set center-left alignment
-        GridPane gridPane = new GridPane();
-        gridPane.setAlignment(Pos.CENTER_LEFT);
+        	//Create a new flexible grid of rows and columns and set center-left alignment
+        	GridPane gridPane = new GridPane();
+        	gridPane.setAlignment(Pos.CENTER_LEFT);
        
-        //Create label by program title string
-        Label title = new Label("   Rotte Autobus");
+        	//Create label by program title string
+        	Label title = new Label("   Rotte Autobus");
         
-        //Set title font
-        title.setFont(Font.loadFont(ClassLoader.getSystemClassLoader().getResourceAsStream(FONT), 16));
+        	//Set title font
+        	title.setFont(Font.loadFont(ClassLoader.getSystemClassLoader().getResourceAsStream(FONT), 16));
         
-        //Create label by a text string which tells the user to write the name of a bus line
-        //in the following text field
-        Label fileInput = new Label("Linea:");
+        	//Create label by a text string which tells the user to write the name of a bus line
+        	//in the following text field
+        	Label fileInput = new Label("Linea:");
         
-        //Set fileInput font
-        fileInput.setFont(Font.loadFont(ClassLoader.getSystemClassLoader().getResourceAsStream(FONT), 14));
+        	//Set fileInput font
+        	fileInput.setFont(Font.loadFont(ClassLoader.getSystemClassLoader().getResourceAsStream(FONT), 14));
         
-        //Add all labels and button created to gridPane specifying column and row index (last 2
-        //colspan and rowspan arguments are optional)
-        gridPane.add(title, 3, 0, 2, 1);
-        gridPane.add(fileInput, 1, 1, 2, 2);
-        gridPane.add(text, 3, 1, 2, 2);
-        gridPane.add(solutionButton, 3, 3, 1, 1);
-        gridPane.add(testButton, 4, 3, 1, 1);
-        gridPane.add(status, 3, 4, 2, 2);
+        	//Add all labels and button created to gridPane specifying column and row index (last 2
+        	//colspan and rowspan arguments are optional)
+        	gridPane.add(title, 3, 0, 2, 1);
+        	gridPane.add(fileInput, 1, 1, 2, 2);
+        	gridPane.add(text, 3, 1, 2, 2);
+        	gridPane.add(solutionButton, 3, 3, 1, 1);
+        	gridPane.add(testButton, 4, 3, 1, 1);
+        	gridPane.add(status, 3, 4, 2, 2);
         
-        //Set gridPane vertical and horizontal gap between nodes
-        gridPane.setVgap(10);
-        gridPane.setHgap(10);
+        	//Set gridPane vertical and horizontal gap between nodes
+        	gridPane.setVgap(10);
+        	gridPane.setHgap(10);
         
-        //Create the container for all content, assign gridPane to it and
-        //specifying width and height values
-        Scene scene = new Scene(gridPane, 300, 150);
+        	//Create the container for all content, assign gridPane to it and
+        	//specifying width and height values
+        	Scene scene = new Scene(gridPane, 300, 150);
 
-        //Set application title
-        primaryStage.setTitle("Raco Maps");
+       		//Set application title
+        	primaryStage.setTitle("Raco Maps");
         
-        //Set scene as application scene 
-        primaryStage.setScene(scene);
+        	//Set scene as application scene 
+        	primaryStage.setScene(scene);
         
-        //Set not resizable window
-        primaryStage.setResizable(false);
+        	//Set not resizable window
+        	primaryStage.setResizable(false);
         
-        //Show application window
-        primaryStage.show();
-    }
+        	//Show application window
+        	primaryStage.show();
+    	}
 }
