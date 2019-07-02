@@ -196,7 +196,7 @@ public class OpenStreetMapUtils
         query.append("&format=json&addressdetails=1");
 
         //Log a message object with debug
-       //log.debug("Query:" + query);
+        //log.debug("Query:" + query);
 
         //Try to obtain an answer by the server, sending it an URL containing the query;
         //then store the result in queryResult local variable 
@@ -204,7 +204,7 @@ public class OpenStreetMapUtils
         
         //Parse JSON text into java object from the given string
         @SuppressWarnings("deprecation")
-		Object obj = JSONValue.parse(queryResult);
+	Object obj = JSONValue.parse(queryResult);
         
         //Log a message object with debug
         //log.debug("obj=" + obj);
