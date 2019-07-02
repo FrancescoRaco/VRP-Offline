@@ -47,40 +47,40 @@ public class GeographicMap
 	 */
     public static final Logger log = Logger.getLogger("GeographicMap");
 	
-    /**
+        /**
 	 * Path where to store GraphHopper graphs
 	 */
     public static final String GRAPHSPATH = ClassLoader.getSystemResource("graphs").getPath();
     
-    /**
+        /**
 	 * Path where to store Geographic maps
 	 */
     public static final String MAPSPATH = ClassLoader.getSystemResource("maps/").getPath();
     
-    /**
+         /**
 	 * Geocoding server
 	 */
     protected String geocodingServer = "http://racomaps.ns0.it/nominatim/";
     
-    /**
+        /**
 	 * File containing geographic map (OpenStreetMap format)
 	 */
-	protected String osmFile;
+    protected String osmFile;
 	
 	/**
 	 * National area considered
 	 */
-	protected Locale area;
+    protected Locale area;
 	
 	/**
 	 * Vehicle selected
 	 */
-	protected String vehicle;
+    protected String vehicle;
 	
 	/**
 	 * Instance of GraphHopper: access point to OSM Map implementation and best path (among 2 points) algorithms
 	 */
-	protected GraphHopper hopper = new GraphHopperOSM().forServer();
+    protected GraphHopper hopper = new GraphHopperOSM().forServer();
 	
 	/**
 	 * Direct Geocoding: map String address to Double values (Latitude, Longitude);
@@ -89,17 +89,17 @@ public class GeographicMap
 	 * @return Map storing Double values representing Latitude and Longitude into relative String keys "lat" and "lon" 
 	 * @throws NotExistingCoordinatesException Not Existing Coordinates Exception
 	 */
-	protected Map<String, Double> getDirectGeocoding(String address) throws NotExistingCoordinatesException
+    protected Map<String, Double> getDirectGeocoding(String address) throws NotExistingCoordinatesException
+    {
+	try
 	{
-		try
-		{
-			return OfflineGeocoder.getDirectOfflineGeocoding(address);
-		}
-		catch(NotExistingCoordinatesException e)
-		{
-			return OpenStreetMapUtils.getInstance(geocodingServer).getCoordinates(address);
-		}
+		return OfflineGeocoder.getDirectOfflineGeocoding(address);
 	}
+	catch(NotExistingCoordinatesException e)
+	{
+		return OpenStreetMapUtils.getInstance(geocodingServer).getCoordinates(address);
+	}
+    }
 	
 	/**
 	 * Reverse Geocoding: map Double Values (Latitude, Longitude) to String address;
@@ -171,7 +171,7 @@ public class GeographicMap
 				if (cmw != null) cmw.addPathInstructions(fromId, toId, bestPathToString(path));
 				
 				//Log a message object with debug
-		        log.debug("[" + from.getId() + " - " + to.getId() + "] : " + Math.round(distance / 1000) + "km; " + (time / 1000) / 60 + "mm" + " and " + time % 60 + "s");
+		                log.debug("[" + from.getId() + " - " + to.getId() + "] : " + Math.round(distance / 1000) + "km; " + (time / 1000) / 60 + "mm" + " and " + time % 60 + "s");
 			}
 		
 		//Build the costs matrix and return it
@@ -390,26 +390,26 @@ public class GeographicMap
 		//Return the Translation object for the specified locale and fall back to english if the locale was not found
 		Translation tr = tm.getWithFallBack(area);
         
-        //Initialize StringBuilder representation of the best path
+                //Initialize StringBuilder representation of the best path
 		StringBuilder infoBuilder = new StringBuilder().append("Tempo stimato: ");
 		infoBuilder.append((path.getTime() / 1000) / 60).append("min").append(" e ").append(path.getTime() % 60).append("s \n");
 		infoBuilder.append("Distanza stimata: ").append(Math.round(path.getDistance() / 1000)).append("km").append(" e ").append(Math.round(path.getDistance() % 1000)).append("m \n\n");
         
-        //If there is at least 1 instruction, iterate over the list of instructions related to the best path
-        if (path.getInstructions() != null)
-        {
-            for(Instruction instruction : il)
-            	{
-            		//Append to StringBuilder infoBuilder the description of specific instruction
-            		//+ time in seconds and distance in meters until no new instruction
-            		infoBuilder.append(instruction.getTurnDescription(tr)).append(" per ").append(Math.round(instruction.getTime() / 1000)).append("s");
-            		infoBuilder.append(" e ").append(Math.round(instruction.getDistance())).append("m\n");
-            	}
-        }
+        	//If there is at least 1 instruction, iterate over the list of instructions related to the best path
+        	if (path.getInstructions() != null)
+        	{
+            		for(Instruction instruction : il)
+            		{
+            			//Append to StringBuilder infoBuilder the description of specific instruction
+            			//+ time in seconds and distance in meters until no new instruction
+            			infoBuilder.append(instruction.getTurnDescription(tr)).append(" per ").append(Math.round(instruction.getTime() / 1000)).append("s");
+            			infoBuilder.append(" e ").append(Math.round(instruction.getDistance())).append("m\n");
+            		}
+        	}
         
-        //Return normalized String related to StringBuilder infoBuilder,
-        //containing a representation of the best path (removing eventual spaces at start and end)
-        return Normalizer.normalize(infoBuilder.toString().trim(), Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "'");
+        	//Return normalized String related to StringBuilder infoBuilder,
+        	//containing a representation of the best path (removing eventual spaces at start and end)
+        	return Normalizer.normalize(infoBuilder.toString().trim(), Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "'");
 	}
 	
 	/**
