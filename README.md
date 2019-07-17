@@ -19,7 +19,7 @@ Istruzioni per importare il progetto offline nell'ambiente di sviluppo:
 - Effettuare un cleaning del progetto
 - Eseguire la classe "Main", all'interno del package "gui" (percorso: gui.Main)
 
-Note: per testare una linea bisogna scrivere semplicemente il numero corrispondente nel campo di testo e cliccare sul bottone desiderato; sono supportate le seguenti linee: 23, 30, 60, 64, 160, 218, 649, 671, 714, 716; i relativi file di testo sono memorizzati nella cartella "data/buses/" del progetto
+Note: per testare una linea bisogna scrivere semplicemente il numero corrispondente nel campo di testo e cliccare sul bottone desiderato; sono supportate le seguenti linee: 23, 30, 60, 64, 160, 218, 649, 671, 714, 716; i relativi file di testo sono memorizzati nella cartella "data/buses/" del progetto; è consigliato modificare le impostazioni di run del gui.Main, aggiungendo il seguente argomento alla VM per incrementare la RAM massima assegnata al processo: "-Xmx4096m"
 
 Non è stato possibile caricare tutti i file direttamente su questa repository a causa dei limiti di spazio
 
