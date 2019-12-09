@@ -1,6 +1,16 @@
 # VRP-Offline
 Trasporto pubblico nella città di Roma: un approccio metaeuristico all'ottimizzazione delle rotte degli autobus
 
+Documento PDF della tesi di laurea, in cui è illustrato il progetto: https://drive.google.com/open?id=1vbQEGiJzYUN0b80XM24FiCGcWGrFlewc
+
+Documento PDF dell'abstract, ossia un riassunto della tesi di laurea: https://drive.google.com/open?id=1ptX330xIXuhua8R2o1d85T1rAlAq1NqS
+
+Link del progetto Client Server:
+
+Client: https://github.com/FrancescoRaco/VRP-Client
+
+Server: https://github.com/FrancescoRaco/VRP-Server
+
 Istruzioni per importare il progetto offline nell'ambiente di sviluppo:
 
 - Creare un nuovo progetto Java denominato "VRP-Offline"
