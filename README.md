@@ -1,6 +1,8 @@
 # VRP-Offline
 Trasporto pubblico nella città di Roma: un approccio metaeuristico all'ottimizzazione delle rotte degli autobus
 
+Il lavoro consiste in un'applicazione Java, implementata sia in versione offline che client / server, in grado di calcolare in modo efficiente i percorsi urbani più vantaggiosi per collegare le fermate degli autobus, senza conoscerne a priori l'ordine di attraversamento corretto. Le rotte risultanti sono infine confrontate con quelle offerte da Atac (gestore del servizio dei trasporti pubblici a Roma).  Sono state integrate librerie avanzate di routing quali GraphHopper (algoritmo Dijkstra) e Jsprit (algoritmo metaeuristico Ruin & Recreate).
+
 Documento PDF della tesi di laurea, in cui è illustrato il progetto: https://drive.google.com/open?id=1vbQEGiJzYUN0b80XM24FiCGcWGrFlewc
 
 Documento PDF dell'abstract, ossia un riassunto della tesi di laurea: https://drive.google.com/open?id=1ptX330xIXuhua8R2o1d85T1rAlAq1NqS
